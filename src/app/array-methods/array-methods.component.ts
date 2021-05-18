@@ -114,27 +114,57 @@ export class ArrayMethodsComponent implements OnInit {
 
     //Filter ---> it returns new array containing array elements that passes a specified condition
 
-    const depositsArray = [500,2000, 5000,6000,1000,200,7000]
-    const greaterthan2K = depositsArray.filter((val)=> {
-      return val > 2000
+    const depositsArray = [500, 2000, 5000, 6000, 1000, 200, 7000];
+    const greaterthan2K = depositsArray.filter(val => {
+      return val > 2000;
     });
     console.log(`The deposits greater than 2000 are : ${greaterthan2K}`);
 
-    const lessthan2K = depositsArray.filter((val)=> {
-      return val < 2000
-    })
-        console.log(`the deposits greater than 2000 are : ${lessthan2K}`);
-
+    const lessthan2K = depositsArray.filter(val => {
+      return val < 2000;
+    });
+    console.log(`the deposits greater than 2000 are : ${lessthan2K}`);
 
     // reduce adds all the elements to a single value
     // acc ---> accumulator
     // cur --> current element
     // i ---> index
     // arr ---> array
-    const totalAmount= depositsArray.reduce((acc,cur,i,arr)=> {
+    const totalAmount = depositsArray.reduce((acc, cur, i, arr) => {
       console.log(`Iteration ${i}: ${acc}`);
-      return acc+cur;
-    },100);
-    console.log(`The total deposit amount is:  ${totalAmount}`)
+      return acc + cur;
+    }, 100);
+    console.log(`The total deposit amount is:  ${totalAmount}`);
+
+    // Find Index----> retreives the Index of array elements based on specified condition
+
+    const findDepositsGreaterThan2K = depositsArray.find(val => val > 2000);
+    console.log(
+      `The Deposit greater than 2000 is ${findDepositsGreaterThan2K}`
+    );
+
+    // FindIndex ----> finds the index/position of particular element in a array based on specified consition
+    const findDepositsBasedOnTime = depositsArray.findIndex(val => val > 1000);
+    console.log(`The Deposit order is ${findDepositsBasedOnTime}`);
+    // from this i can say that for both find and findindex methods, if condition is satisfied the loop will stops even the condition  satisfies for other elements in the array
+
+    // Includes -----> if particular element is present in array it will return true or false
+
+    console.log(depositsArray.includes(500), depositsArray.includes(1));
+
+    // Some ---> it returns boolean based on condition even the single element passes the condition its returns true otherwise false
+
+    console.log(
+      depositsArray.some(val => val > 1000),
+      depositsArray.some(val => val < -1)
+    );
+
+    // Every ---> it returns boolean based on condition only when all elements in array statisfies or passed the condition.
+
+    console.log(
+      depositsArray.every(val => val > 0),
+      depositsArray.every(val => val > 2000)
+    );
   }
+  
 }
