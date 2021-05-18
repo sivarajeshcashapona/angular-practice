@@ -165,6 +165,18 @@ export class ArrayMethodsComponent implements OnInit {
       depositsArray.every(val => val > 0),
       depositsArray.every(val => val > 2000)
     );
+
+    //Flat ---> it deals with nested arrays and joins them to single array.
+
+    const nestedArr = [[1, 2, 4], [3, 78, 89], [657], [89, 67, 89]];
+    console.log(nestedArr.flat());
+
+    const nestedArrTwo = [[1, 2], 6, [3, 78, 89], [657]];
+    console.log(nestedArrTwo.flat(), nestedArrTwo.flat(2));
+
+    //Flat Map ----> which is used with combination of map and flat both at the same time
+
+    const flatmapArr = nestedArr.flatMap((val: any) => val);
+    console.log(flatmapArr);
   }
-  
 }
