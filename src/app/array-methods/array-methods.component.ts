@@ -35,6 +35,10 @@ export class ArrayMethodsComponent implements OnInit {
     const arr2 = ['a', 'b', 'c', 'd', 'e'];
     console.log(arr1.concat(arr2));
 
+    //Spread operator
+
+    console.log([...arr1, ...arr2]);
+
     //split and join
     console.log('Split and Join');
     arr2.forEach((item, i, arr) => {
